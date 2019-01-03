@@ -1,0 +1,27 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [ENTITY]   ,[ACCOUNT]
+  
+      ,sum([DATA])
+  FROM [IMP_EPM_STAGING].[dbo].[GIMPI21_INT_PSGL_HFM_ACT_VW]
+  WHERE  [VERSION]  = 'Final'
+  and [VARIANCE] = 'Absolute'
+  and  [YEARS] = 'FY18'
+    and [PERIOD] = 'Jan'
+	AND [CURRENCY] = 'USD Input'
+	  and [REPORTING_REGION] = 'U.S./N.A. Region'
+	  AND [SCENARIO] = 'Actuals'
+	  AND [VIEW] = 'Base'
+	  and [ACCOUNT] like '%L%'
+	  GROUP BY  [ENTITY],[ACCOUNT]
+    
+    
+    
+    --/****** Script for SelectTopNRows command from SSMS  ******/
+//  SELECT  DISTINCT[VIEW] FROM [IMP_EPM_STAGING].[dbo].[GIMPI21_INT_PSGL_HFM_ACT_VW]
+//  where  [YEARS] = 'FY18'   and    [PERIOD] = 'Jan'   and [REPORTING_REGION] = 'U.S./N.A. Region'
+
+
+
+
+	 
+
